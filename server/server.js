@@ -76,6 +76,7 @@ io.on('connection', client => {
 });
 
 function startGameInterval(roomName) {
+    await delay(3000);
     const intervalId = setInterval(() => {
         const winner = gameLoop(state[roomName]);
         console.log('hi')
