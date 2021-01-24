@@ -69,9 +69,22 @@ function gameLoop(state) {
         return 2;
     }
 
+    for (cell of playerOne.snake.slice(-1)) {
+        if (playerTwo.pos == cell) {
+            return 1;
+        }
+    }
+
     if (playerTwo.pos.x < 0 || playerTwo.pos.x > GRID_SIZE || playerTwo.pos.y < 0 || playerTwo.pos.y > GRID_SIZE) {
         return 1;
     }
+
+    for (cell of playerTwo.snake.slice(-1)) {
+        if (playerOne.pos == cell) {
+            return 2;
+        }
+    }
+
 
     if (state.food.x === playerOne.pos.x && state.food.y === playerOne.pos.y) {
         playerOne.snake.push({ ...playerOne.pos });
