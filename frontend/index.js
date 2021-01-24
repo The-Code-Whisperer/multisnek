@@ -12,7 +12,7 @@ socket.on('gameCode', handleGameCode);
 socket.on('unknownGame', handleUnknownGame);
 socket.on('tooManyPlayers', handleTooManyPlayers);
 socket.on('showRdyImage', handleShowRdyImage);
-socket.on('askRematch', handleAskRematch);
+// socket.on('askRematch', handleAskRematch);
 
 const gameScreen = document.getElementById('gameScreen');
 const initialScreen = document.getElementById('initialScreen');
@@ -157,3 +157,7 @@ function handleShowRdyImage() {
 
     }, 3000)
 }
+
+// function handleAskRematch() {
+
+// }
