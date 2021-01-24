@@ -40,9 +40,9 @@ function createGameState() {
 
             },
             snake: [
-                { x: 20, y: 10 },
-                { x: 19, y: 10 },
-                { x: 18, y: 10 },
+                { x: 20, y: 9 },
+                { x: 19, y: 9 },
+                { x: 18, y: 9 },
             ],
         }],
         food: {},
