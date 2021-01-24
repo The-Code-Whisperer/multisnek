@@ -1,5 +1,5 @@
 const BG_COLOUR = '#231F20';
-const SNAKE_COLOUR = '#c2c2c2';
+const SNAKE_COLOUR = 'blue';
 const FOOD_COLOUR = '#e66916';
 
 const socket = io('https://polar-plateau-25873.herokuapp.com/');
