@@ -2,8 +2,8 @@ const BG_COLOUR = '#231F20';
 const SNAKE_COLOUR = '#c2c2c2';
 const FOOD_COLOUR = '#e66916';
 
-// const socket = io('https://polar-plateau-25873.herokuapp.com/');
-const socket = io('http://localhost:3000');
+const socket = io('https://polar-plateau-25873.herokuapp.com/');
+// const socket = io('http://localhost:3000');
 
 socket.on('init', handleInit);
 socket.on('gameState', handleGameState);
