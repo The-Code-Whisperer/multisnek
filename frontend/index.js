@@ -2,7 +2,8 @@ const BG_COLOUR = '#231F20';
 const SNAKE_COLOUR = '#c2c2c2';
 const FOOD_COLOUR = '#e66916';
 
-const socket = io('https://polar-plateau-25873.herokuapp.com/');
+//const socket = io('https://polar-plateau-25873.herokuapp.com/');
+const socket = io('http://localhost:3000');
 
 socket.on('init', handleInit);
 socket.on('gameState', handleGameState);
@@ -10,6 +11,7 @@ socket.on('gameOver', handleGameOver);
 socket.on('gameCode', handleGameCode);
 socket.on('unknownGame', handleUnknownGame);
 socket.on('tooManyPlayers', handleTooManyPlayers);
+socket.on('showRdyImage', handleShowRdyImage);
 
 const gameScreen = document.getElementById('gameScreen');
 const initialScreen = document.getElementById('initialScreen');
@@ -17,10 +19,13 @@ const newGameBtn = document.getElementById('newGameButton');
 const joinGameBtn = document.getElementById('joinGameButton');
 const gameCodeInput = document.getElementById('gameCodeInput');
 const gameCodeDisplay = document.getElementById('gameCodeDisplay');
+const rdy3 = document.getElementById('rdy3');
+const rdy2 = document.getElementById('rdy2');
+const rdy1 = document.getElementById('rdy1');
+
 
 newGameBtn.addEventListener('click', newGame);
 joinGameBtn.addEventListener('click', joinGame);
-
 
 let canvas, ctx;
 let playerNumber;
@@ -129,3 +134,28 @@ function reset() {
     initialScreen.style.display = "block";
     gameScreen.style.display = "none";
 }
+
+function handleShowRdyImage() {
+    rdy3.style.display = "block";
+    rdy2.style.display = "block";
+    rdy1.style.display = "block";
+    setTimeout(() => {
+        rdy3.style.display = "none";
+        console.log('3 gone')
+    }, 1000)
+    setTimeout(() => {
+        rdy2.style.display = "none";
+        console.log('2 gone')
+
+    }, 2000)
+    setTimeout(() => {
+        rdy1.style.display = "none";
+        console.log('1 gone')
+
+    }, 3000)
+}
+
+// function handleHideRdyImage() {
+//     rdyImage.style.display = "none";
+//     console.log('HIDE')
+// }

@@ -20,7 +20,7 @@ io.on('connection', client => {
         }
 
         let numClients = 0;
-        if (allUsers) { 
+        if (allUsers) {
             numClients = Object.keys(allUsers).length;
         }
 
@@ -33,7 +33,7 @@ io.on('connection', client => {
         }
 
         clientRooms[client.id] = gameCode;
-        
+
         client.join(gameCode);
         client.number = 2;
         client.emit('init', 2);
@@ -62,7 +62,7 @@ io.on('connection', client => {
 
         try {
             keyCode = parseInt(keyCode);
-        } catch(e) {
+        } catch (e) {
             console.error(e);
             return;
         }
@@ -76,18 +76,21 @@ io.on('connection', client => {
 });
 
 function startGameInterval(roomName) {
-    await delay(3000);
-    const intervalId = setInterval(() => {
-        const winner = gameLoop(state[roomName]);
-        console.log('hi')
-        if (!winner) {
-            emitGameState(roomName, state[roomName]);
-        } else {
-            emitGameOver(roomName, winner);
-            state[roomName] = null;
-            clearInterval(intervalId);
-        }
-    }, 1000 / FRAME_RATE)
+    io.sockets.in(roomName)
+        .emit('showRdyImage');
+    setTimeout(() => {
+        const intervalId = setInterval(() => {
+            const winner = gameLoop(state[roomName]);
+            if (!winner) {
+                emitGameState(roomName, state[roomName]);
+            } else {
+                emitGameOver(roomName, winner);
+                state[roomName] = null;
+                clearInterval(intervalId);
+            }
+        }, 1000 / FRAME_RATE)
+    }, 3000);
+
 }
 
 function emitGameState(roomName, state) {
