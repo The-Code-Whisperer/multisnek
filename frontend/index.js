@@ -144,17 +144,12 @@ function handleShowRdyImage() {
     rdy1.style.display = "block";
     setTimeout(() => {
         rdy3.style.display = "none";
-        console.log('3 gone')
     }, 1000)
     setTimeout(() => {
         rdy2.style.display = "none";
-        console.log('2 gone')
-
     }, 2000)
     setTimeout(() => {
         rdy1.style.display = "none";
-        console.log('1 gone')
-
     }, 3000)
 }
 

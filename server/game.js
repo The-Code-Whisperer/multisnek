@@ -146,10 +146,8 @@ function randomFood(state) {
 }
 
 function getUpdatedVelocity(keyCode, currentVel) {
-    console.log(currentVel);
     switch (keyCode) {
         case 37: { // left
-            console.log('left');
             if (currentVel.x == 1 && currentVel.y == 0) {
                 return currentVel;
             } else {
@@ -157,7 +155,6 @@ function getUpdatedVelocity(keyCode, currentVel) {
             }
         }
         case 38: { // down
-            console.log('down');
             if (currentVel.x == 0 && currentVel.y == 1) {
                 return currentVel;
             } else {
@@ -165,17 +162,13 @@ function getUpdatedVelocity(keyCode, currentVel) {
             }
         }
         case 39: { // right
-            console.log('right');
             if (currentVel.x == -1 && currentVel.y == 0) {
-                console.log('returning current vel')
                 return currentVel;
             } else {
-                console.log('returning new fail direction')
                 return { x: 1, y: 0 }
             }
         }
         case 40: { // up
-            console.log('up');
             if (currentVel.x == 0 && currentVel.y == -1) {
                 return currentVel;
             } else {
